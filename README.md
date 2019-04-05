@@ -60,7 +60,7 @@ volatility -f <memory capture> imageinfo
 
 ### Host
 
-#### FTK
+#### [FTK](https://accessdata.com/product-download?/support/product-downloads)
 
 ##### Description
 >Forensic Toolkit, or FTK, is a computer forensics software made by AccessData. It scans a hard drive looking for various information. It can, for example, locate deleted emails and scan a disk for text strings to use them as a password dictionary to crack encryption. 
@@ -71,7 +71,7 @@ While FTK is a very powerful tool, it offers essentially the same functionality 
 ##### Usage Notes
 FTK can be installed using a `.exe` file. The license may only be good until I graduate.
 
-#### FTK Imager
+#### [FTK Imager](https://accessdata.com/product-download?/support/product-downloads)
 
 ##### Description
 >The FTK Imager is a simple but concise tool. It saves an image of a hard disk in one file or in segments that may be later on reconstructed. It calculates MD5 hash values and confirms the integrity of the data before closing the files. 
@@ -82,7 +82,7 @@ FTK Imager is a really simple and slick program. It can be used for both live an
 ##### Usage Notes
 Be sure to bring and use a write blocker to assure that you aren't writing any data to the disk you're trying to image. Failing to do so can invalidate the evidence on that disk.
 
-#### WinPrefetchView
+#### [WinPrefetchView](https://www.nirsoft.net/utils/win_prefetch_view.html)
 
 ##### Description
 >WinPrefetchView is a small utility that reads the Prefetch files stored in your system and displays the information stored in them. By looking in these files, you can learn which files every application is using, and which files are loaded on Windows boot. 
