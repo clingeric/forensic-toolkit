@@ -37,7 +37,7 @@ $ pip install --upgrade setuptools pip wheel
 $ pip install rekall-agent rekall
 ```
 
-[Volatility](https://github.com/volatilityfoundation/volatility)
+#### [Volatility](https://github.com/volatilityfoundation/volatility)
 
 ##### Description
 >The Volatility Framework is a completely open collection of tools, implemented in Python under the GNU General Public License, for the extraction of digital artifacts from volatile memory (RAM) samples. The extraction techniques are performed completely independent of the system being investigated but offer visibilty into the runtime state of the system. The framework is intended to introduce people to the techniques and complexities associated with extracting digital artifacts from volatile memory samples and provide a platform for further work into this exciting area of research.
@@ -60,7 +60,7 @@ volatility -f <memory capture> imageinfo
 
 ### Host
 
-FTK
+#### FTK
 
 ##### Description
 >Forensic Toolkit, or FTK, is a computer forensics software made by AccessData. It scans a hard drive looking for various information. It can, for example, locate deleted emails and scan a disk for text strings to use them as a password dictionary to crack encryption. 
@@ -71,7 +71,7 @@ While FTK is a very powerful tool, it offers essentially the same functionality 
 ##### Usage Notes
 FTK can be installed using a `.exe` file. The license may only be good until I graduate.
 
-FTK Imager
+#### FTK Imager
 
 ##### Description
 >The FTK Imager is a simple but concise tool. It saves an image of a hard disk in one file or in segments that may be later on reconstructed. It calculates MD5 hash values and confirms the integrity of the data before closing the files. 
@@ -82,7 +82,7 @@ FTK Imager is a really simple and slick program. It can be used for both live an
 ##### Usage Notes
 Be sure to bring and use a write blocker to assure that you aren't writing any data to the disk you're trying to image. Failing to do so can invalidate the evidence on that disk.
 
-WinPrefetchView
+#### WinPrefetchView
 
 ##### Description
 >WinPrefetchView is a small utility that reads the Prefetch files stored in your system and displays the information stored in them. By looking in these files, you can learn which files every application is using, and which files are loaded on Windows boot. 
@@ -93,75 +93,113 @@ WinPrefetchView is a great, simple tool that really helps determine the root cau
 ##### Usage Notes
 To use WinPrefetchView on Prefetch files obtained from a victim's machine, you need to change the source of the files by navigating to the Options Menu, selecting Advanced Options, and then change the directory of the Prefectch files.
 
-[Redline](https://www.fireeye.com/services/freeware/redline.html)
+#### [Redline](https://www.fireeye.com/services/freeware/redline.html)
 
 ##### Description
-##### Review
-##### Usage Notes
+>Redline®, FireEye's premier free endpoint security tool, provides host investigative capabilities to users to find signs of malicious activity through memory and file analysis and the development of a threat assessment profile. 
 
-[Autopsy](https://www.sleuthkit.org/autopsy/)
+Redline has very similar functionality to Autopsy and FTK.
+
+##### Review
+
+I personally have never used Redline, but according to the other people who I know, it's almost as good as Autopsy in performing host analysis. Additionally, since it's part of the FireEye software suite, there's a lot of interoperability. Additionally, Redline can assist with finding IOCs. I would use it only if Autopsy cannot be used, but I would prefer it over FTK.
+
+##### Usage Notes
+Redline is installed with an `.exe` file, and cannot be used with Linux or MacOSX. 
+
+#### [Autopsy](https://www.sleuthkit.org/autopsy/)
 
 ##### Description
+>Autopsy® is a digital forensics platform and graphical interface to The Sleuth Kit® and other digital forensics tools. It is used by law enforcement, military, and corporate examiners to investigate what happened on a computer. You can even use it to recover photos from your camera's memory card.
+
+Autopsy does host analysis, similar to FTK and Redline.
+
 ##### Review
+I really like Autopsy. It's powerful yet simple to use. It's my preferred host analysis software. One of the best features of Autopsy is the ability to import modules that can add enhanced functionality to the software. For example, by adding the "Interesting Files" module, it will perform a scan for you looking for files that could be potential IOCs, like inserted USB drives. The GUI is streamlined and simple to use. The search feature is very powerful and can find files on the image very quickly. 
+
 ##### Usage Notes
+Although the import modules provide a lot of functionality, not selecting them in the original import drastically speeds the loading and indexing process. The Timeline Analysis is also really interesting when you don't have the full story of what occured. 
 
 ### Network
 
-[Wireshark](https://www.wireshark.org/download.html)
+#### [Wireshark](https://www.wireshark.org/download.html)
 
 ##### Description
-##### Review
-##### Usage Notes
+>Wireshark is the world’s foremost network protocol analyzer. It lets you see what’s happening on your network at a microscopic level. It is the de facto (and often de jure) standard across many industries and educational institutions. Wireshark development thrives thanks to the contributions of networking experts across the globe.
 
-[Nmap](https://nmap.org/download.html)
+Wireshark allows for active packet capture when your machine is connected to the network of interest. Additionally, Wireshark allows for offline packet analysis of saved network capture files (usually pcap). Wireshark allows for simple searching and filtering of packet types and contents to allow investigators to identify potentially dangerous network traffic. 
+
+##### Review
+Wireshark is both powerful and simple. The best feature is the ability to filter and search through the traffic. The downside to Wireshark is that it requires that the analyst have a good idea of what happened and approximately when it happened. Unlike Autopsy, it doesn't highlight interesting files or packets, and requires the analyst to perform all of the work manually. Despite this annoyance, it's by far the most powerful network analysis tool. 
+
+##### Usage Notes
+Wireshark doesn't respond well to large network capture files. It's available in an `.exe` installer on Windows.
+
+#### [Nmap](https://nmap.org/download.html)
 
 ##### Description
-##### Review
-##### Usage Notes
+>Nmap (Network Mapper) is a free and open-source network scanner. Nmap is used to discover hosts and services on a computer network by sending packets and analyzing the responses.Nmap provides a number of features for probing computer networks, including host discovery and service and operating system detection. These features are extensible by scripts that provide more advanced service detection, vulnerability detection, and other features. Nmap can adapt to network conditions including latency and congestion during a scan. 
 
-[Snort](https://www.snort.org/downloads)
+Nmap is useful for getting a overview of the network conditions of a machine durinthe acqusition phase. It can also obtain additional network information that can be analyzed at later steps. 
+
+##### Review
+Nmap is very streamlined and simple. It's a command-line tool that offers a robust set of features. It's my go-to software for obtaining information about a machine's network connections, layout, and other relevant info. 
+
+##### Usage Notes
+Nnap is usually installed on most machines, but can be installed with a `.exe` file on Windows.
+
+#### [Snort](https://www.snort.org/downloads)
 
 ##### Description
-##### Review
-##### Usage Notes
+>Snort is a free open source network intrusion detection system (IDS) and intrusion prevention system (IPS). Snort's can perform real-time traffic analysis and packet logging on Internet Protocol (IP) networks. Snort performs protocol analysis, content searching and matching. The program can also be used to detect probes or attacks, including, but not limited to, operating system fingerprinting attempts, semantic URL attacks, buffer overflows, server message block probes, and stealth port scans. Additionally, Snort will monitor network traffic and analyze it against a rule set defined by the user. The program will then perform a specific action based on what has been identified.
 
-[WinPcap](https://www.winpcap.org/)
-
-##### Description
 ##### Review
+Snort is a great tool for network analysis. However, its effectiveness is only as good as its rules list. If the rules list is not up to date, Snort will not be able to identify any suspicious network traffic. Otherwise, it's a relatively straightforward program. Another disadvantage of Snort is the installation process, which can be tedious and error-prone. Once installed, however, it's simple to use. 
+
 ##### Usage Notes
+Snort can be used for live monitoring or offline, dead analysis. Be sure to get the newest ruleset. 
 
 ### Malware
 
-[VirusTotal](https://www.virustotal.com/)
+#### [VirusTotal](https://www.virustotal.com/)
 
 ##### Description
-##### Review
-##### Usage Notes
+>VirusTotal aggregates many antivirus products and online scan engines to check for viruses that the user's own antivirus may have missed, or to verify against any false positives. Users can scan suspect URLs, upload files, or upload file hashes to search through the VirusTotal dataset.
 
-[Ghidra](https://ghidra-sre.org/)
+##### Review
+VirusTotal is an incredible website that provides fast and simple virus detection. My favorite feature is the ability to search for malware by hash, eliminating the need to upload the potentially dangerous file through your web browswer. VirusTotal also has exposed APIs that allow for the malware indentification to take place in an automated fashion. Its malware lists are continually being update to assure that malware will be properly detected. 
+
+##### Usage Notes
+VirusTotal is available only online. In addition to the static analysis VirusTotal perform, you can perform dynamic analysis using its uploaded Cuckoo sandbox.
+
+#### [Ghidra](https://ghidra-sre.org/)
 
 ##### Description
+>Ghidra is a software reverse engineering (SRE) framework created and maintained by the National Security Agency Research Directorate. This framework includes a suite of full-featured, high-end software analysis tools that enable users to analyze compiled code on a variety of platforms including Windows, macOS, and Linux. Capabilities include disassembly, assembly, decompilation, graphing, and scripting, along with hundreds of other features. Ghidra supports a wide variety of processor instruction sets and executable formats and can be run in both user-interactive and automated modes. Users may also develop their own Ghidra plug-in components and/or scripts using Java or Python.
+
 ##### Review
+I've personally never used Ghidra, but I've heard from many professionals that it provides an incredible amout of features for a free software. Although I don't know much about reverse engineering of malware, I would use Ghidra to assist me. 
+
 ##### Usage Notes
+Requires Python to be installed. 
 
 ## Linux
 
 ### Memory
 
-[Rekall](http://www.rekall-forensic.com/)
+#### [Rekall](http://www.rekall-forensic.com/)
 
 ##### Description
 ##### Review
 ##### Usage Notes
 
-[Volatility](https://github.com/volatilityfoundation/volatility)
+#### [Volatility](https://github.com/volatilityfoundation/volatility)
 
 ##### Description
 ##### Review
 ##### Usage Notes
 
-[LiME](https://github.com/504ensicsLabs/LiME)
+#### [LiME](https://github.com/504ensicsLabs/LiME)
 
 ##### Description
 ##### Review
@@ -169,7 +207,7 @@ To use WinPrefetchView on Prefetch files obtained from a victim's machine, you n
 
 ### Host
 
-[Autopsy](https://www.sleuthkit.org/autopsy/)
+#### [Autopsy](https://www.sleuthkit.org/autopsy/)
 
 ##### Description
 ##### Review
@@ -177,31 +215,31 @@ To use WinPrefetchView on Prefetch files obtained from a victim's machine, you n
 
 ### Network
 
-[Netcat](http://netcat.sourceforge.net/)
+#### [Netcat](http://netcat.sourceforge.net/)
 
 ##### Description
 ##### Review
 ##### Usage Notes
 
-[Wireshark](https://www.wireshark.org/download.html)
+#### [Wireshark](https://www.wireshark.org/download.html)
 
 ##### Description
 ##### Review
 ##### Usage Notes
 
-[Nmap](https://nmap.org/download.html)
+#### [Nmap](https://nmap.org/download.html)
 
 ##### Description
 ##### Review
 ##### Usage Notes
 
-[Snort](https://www.snort.org/downloads)
+#### [Snort](https://www.snort.org/downloads)
 
 ##### Description
 ##### Review
 ##### Usage Notes
 
-[Zeek/Bro](https://www.zeek.org/download/index.html)
+#### [Zeek/Bro](https://www.zeek.org/download/index.html)
 
 ##### Description
 ##### Review
@@ -209,13 +247,13 @@ To use WinPrefetchView on Prefetch files obtained from a victim's machine, you n
 
 ### Malware
 
-[VirusTotal](https://www.virustotal.com/)
+#### [VirusTotal](https://www.virustotal.com/)
 
 ##### Description
 ##### Review
 ##### Usage Notes
 
-[Ghidra](https://ghidra-sre.org/)
+#### [Ghidra](https://ghidra-sre.org/)
 
 ##### Description
 ##### Review
@@ -225,14 +263,14 @@ To use WinPrefetchView on Prefetch files obtained from a victim's machine, you n
 
 ### Memory
 
-[Rekall](http://www.rekall-forensic.com/)
+#### [Rekall](http://www.rekall-forensic.com/)
 
 ##### Description
 ##### Review
 ##### Usage Notes
 OSXPMem
 
-[Volatility](https://github.com/volatilityfoundation/volatility)
+#### [Volatility](https://github.com/volatilityfoundation/volatility)
 
 ##### Description
 ##### Review
@@ -240,7 +278,7 @@ OSXPMem
 
 ### Host
 
-[Autopsy](https://www.sleuthkit.org/autopsy/)
+#### [Autopsy](https://www.sleuthkit.org/autopsy/)
 
 ##### Description
 ##### Review
@@ -248,25 +286,25 @@ OSXPMem
 
 ### Network
 
-[Netcat](http://netcat.sourceforge.net/)
+#### [Netcat](http://netcat.sourceforge.net/)
 
 ##### Description
 ##### Review
 ##### Usage Notes
 
-[Wireshark](https://www.wireshark.org/download.html)
+#### [Wireshark](https://www.wireshark.org/download.html)
 
 ##### Description
 ##### Review
 ##### Usage Notes
 
-[Nmap](https://nmap.org/download.html)
+#### [Nmap](https://nmap.org/download.html)
 
 ##### Description
 ##### Review
 ##### Usage Notes
 
-Snort
+#### Snort
 
 ```shell
 brew install snort
@@ -276,7 +314,7 @@ brew install snort
 ##### Review
 ##### Usage Notes
 
-[Zeek/Bro](https://www.zeek.org/download/index.html)
+#### [Zeek/Bro](https://www.zeek.org/download/index.html)
 
 ##### Description
 ##### Review
@@ -284,13 +322,13 @@ brew install snort
 
 ### Malware
 
-[VirusTotal](https://www.virustotal.com/)
+#### [VirusTotal](https://www.virustotal.com/)
 
 ##### Description
 ##### Review
 ##### Usage Notes
 
-[Ghidra](https://ghidra-sre.org/)
+#### [Ghidra](https://ghidra-sre.org/)
 
 ##### Description
 ##### Review
