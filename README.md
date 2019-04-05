@@ -295,8 +295,13 @@ Although the import modules provide a lot of functionality, not selecting them i
 #### [Netcat](http://netcat.sourceforge.net/)
 
 ##### Description
+>netcat (often abbreviated to nc) is a computer networking utility for reading from and writing to network connections using TCP or UDP. The command is designed to be a dependable back-end that can be used directly or easily driven by other programs and scripts. At the same time, it is a feature-rich network debugging and investigation tool, since it can produce almost any kind of connection its user could need and has a number of built-in capabilities. 
+
 ##### Review
+Netcat is a very streamlined and powerful command-line network utility. It's available by default on almost OS, which makes it powerful as understanding is OS agnostic. It's able to provide quick status readouts of the network and connected devices. It's very similar to nmap, but lacks some of its features. Howerver, nmap is the default way to install netcat on Windows, so the two tools go hand in hand for network analysis. 
+
 ##### Usage Notes
+If not installed on machine, it must be installed as a `.rpm` file or built from source for other distributions.
 
 ### Network
 
@@ -334,12 +339,6 @@ Snort is a great tool for network analysis. However, its effectiveness is only a
 
 ##### Usage Notes
 Snort can be used for live monitoring or offline, dead analysis. Be sure to get the newest ruleset. 
-
-#### [Zeek/Bro](https://www.zeek.org/download/index.html)
-
-##### Description
-##### Review
-##### Usage Notes
 
 ### Malware
 
@@ -483,12 +482,6 @@ Snort isn't available for Mac through it's website, but is available through `br
 ```shell
 brew install snort
 ```
-
-#### [Zeek/Bro](https://www.zeek.org/download/index.html)
-
-##### Description
-##### Review
-##### Usage Notes
 
 ### Malware
 
